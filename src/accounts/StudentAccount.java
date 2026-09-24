@@ -20,8 +20,7 @@ public class StudentAccount extends BankAccount {
     double newBalance = this.balance - amount;
     if (newBalance < -5000) {
       throw new ArithmeticException("Insufficient ballance");
-    } else {
-      this.balance = newBalance;
     }
+    this.balance = newBalance;
   }
 }

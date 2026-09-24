@@ -26,8 +26,7 @@ public class BankAccount {
     double newBalance = this.balance -= amount;
     if (newBalance < 0) {
       throw new ArithmeticException("Insufficinet balance");
-    } else {
-      this.balance = newBalance;
     }
+    this.balance = newBalance;
   }
 }

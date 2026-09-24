@@ -21,8 +21,7 @@ public class BusinessAccount extends BankAccount {
     double newBalance = this.balance - (amount * 1.01);
     if (newBalance < 0) {
       throw new ArithmeticException("Insufficient balance");
-    } else {
-      this.balance = newBalance;
     }
+    this.balance = newBalance;
   }
 }
