@@ -14,10 +14,6 @@ public class BankAccountFactory {
     return String.format("%09d/%04d", account, bank);
   }
 
-  public static void main(String[] args) {
-    System.out.println(generateAccount()); // např. 382910471/0824
-  }
-
   public BankAccount createSavingBankAccount(AccountOwner owner,
                                              double interest) {
     String uuid = UUID.randomUUID().toString();
