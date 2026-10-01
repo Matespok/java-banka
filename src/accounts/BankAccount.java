@@ -15,6 +15,12 @@ public class BankAccount {
     this.balance = balance;
   }
 
+  public BankAccount(AccountOwner owner, String accountNumber, String uuid) {
+    this.owner = owner;
+    this.accountNumber = accountNumber;
+    this.uuid = uuid;
+  }
+
   public BankAccount(AccountOwner owner) {
     this.owner = owner;
     this.balance = 0;

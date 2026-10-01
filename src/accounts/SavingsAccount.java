@@ -16,6 +16,12 @@ public class SavingsAccount extends BankAccount {
     this.interest = CountInterest(interest);
   }
 
+  public SavingsAccount(AccountOwner owner, double interest, String uuid,
+                        String accountNumber) {
+    super(owner, accountNumber, uuid);
+    this.interest = CountInterest(interest);
+  }
+
   public double CountInterest(double interest) { return interest += 1; }
 
   @Override

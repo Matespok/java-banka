@@ -2,12 +2,11 @@ import accounts.*;
 import java.util.ArrayList;
 import java.util.List;
 import people.*;
+import transfers.*;
 
 public class Main {
   public static void main(String[] args) {
     AccountOwner owner = new AccountOwner("Janos", "Kredenc");
-
-    // declare all accs
     List<BankAccount> accounts = new ArrayList<>();
     BankAccount studentAccount =
         new StudentAccount(owner, "Plynarenske uciliste Pardubice");
