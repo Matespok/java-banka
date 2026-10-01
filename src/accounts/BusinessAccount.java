@@ -16,11 +16,18 @@ public class BusinessAccount extends BankAccount {
     this.withdrawFee = withdrawFee;
   }
 
+  public BusinessAccount(AccountOwner owner, double withdrawFee, String uuid,
+                         String accountNumber) {
+    super(owner, accountNumber, uuid);
+    this.withdrawFee = withdrawFee;
+  }
+
   public double getFee() { return this.withdrawFee; }
 
   @Override
   public void substract(double amount) {
-    double newBalance = this.balance - (amount);
+    double total = amount + (amount * this.withdrawFee);
+    double newBalance = this.balance - total;
     if (newBalance < 0) {
       throw new ArithmeticException("Insufficient balance");
     }

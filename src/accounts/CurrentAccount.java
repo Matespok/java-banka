@@ -22,4 +22,13 @@ public class CurrentAccount extends BankAccount {
     super(owner, accountNumber, uuid);
     this.overdraftLimit = overdraftLimit;
   }
+
+  @Override
+  public void substract(double amount) {
+    double newBalance = this.balance - amount;
+    if (newBalance < -this.overdraftLimit) {
+      throw new ArithmeticException("Insufficient balance");
+    }
+    this.balance = newBalance;
+  }
 }

@@ -43,4 +43,11 @@ public class BankAccountFactory {
 
     return new StudentAccount(owner, uuid, accountNumber, school);
   }
+
+  public BankAccount createBusinessAccount(AccountOwner owner, double withdrawFee) {
+    String uuid = UUID.randomUUID().toString();
+    String accountNumber = generateRandomNumber();
+
+    return new BusinessAccount(owner, withdrawFee, uuid, accountNumber);
+  }
 }

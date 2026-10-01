@@ -33,9 +33,9 @@ public class BankAccount {
   public void add(double amount) { this.balance += amount; }
 
   public void substract(double amount) {
-    double newBalance = this.balance -= amount;
+    double newBalance = this.balance - amount;
     if (newBalance < 0) {
-      throw new ArithmeticException("Insufficinet balance");
+      throw new ArithmeticException("Insufficient balance");
     }
     this.balance = newBalance;
   }

@@ -25,7 +25,7 @@ public class StudentAccount extends BankAccount {
     public void substract(double amount) {
         double newBalance = this.balance - amount;
         if (newBalance < -5000) {
-            throw new ArithmeticException("Insufficient ballance");
+            throw new ArithmeticException("Insufficient balance");
         }
         this.balance = newBalance;
     }
