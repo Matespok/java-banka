@@ -1,5 +1,6 @@
 package accounts;
 
+import notifiers.*;
 import people.*;
 
 public class BankAccount {
@@ -7,6 +8,7 @@ public class BankAccount {
   private String accountNumber;
   private AccountOwner owner;
   protected double balance;
+  private ConsoleNotifier notifier;
 
   public BankAccount(AccountOwner owner, double balance) {
     this.owner = owner;
@@ -19,6 +21,8 @@ public class BankAccount {
   }
 
   public double getBalance() { return this.balance; }
+
+  public void setBalance(double balance) { this.balance = balance; }
 
   public void add(double amount) { this.balance += amount; }
 
