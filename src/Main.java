@@ -16,7 +16,6 @@ public class Main {
 
     BankAccount businessAccount = factory.createBusinessAccount(owner2, 0.05);
     businessAccount.add(5000);
-
     TransferService transferService = new TransferService();
 
     System.out.println("Before Transfer:");
