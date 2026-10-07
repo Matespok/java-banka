@@ -22,7 +22,6 @@ public class Transaction {
     this.amount = amount;
   }
 
-  TransactionFactory factory;
 
   String getUuid() { return this.uuid; }
 
