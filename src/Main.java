@@ -10,7 +10,6 @@ public class Main {
     AccountOwner owner2 = new AccountOwner("Bela", "Kovacs");
 
     BankAccountFactory factory = new BankAccountFactory();
-
     BankAccount studentAccount = factory.createStudentAccount(owner1, "BME");
     studentAccount.add(1000);
 

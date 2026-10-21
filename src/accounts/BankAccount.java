@@ -26,11 +26,21 @@ public class BankAccount {
     this.balance = 0;
   }
 
-  public double getBalance() { return this.balance; }
+  public String getAccountNumber() {
+    return this.accountNumber;
+  }
 
-  public void setBalance(double balance) { this.balance = balance; }
+  public double getBalance() {
+    return this.balance;
+  }
 
-  public void add(double amount) { this.balance += amount; }
+  public void setBalance(double balance) {
+    this.balance = balance;
+  }
+
+  public void add(double amount) {
+    this.balance += amount;
+  }
 
   public void substract(double amount) {
     double newBalance = this.balance - amount;

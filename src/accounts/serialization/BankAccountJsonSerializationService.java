@@ -3,7 +3,7 @@ package accounts.serialization;
 import accounts.BankAccount;
 import java.util.List;
 
-public class BankAccountJsonSerialization {
+public class BankAccountJsonSerializationService {
   public String createJson(List<BankAccount> bankAccounts) {
     int size = bankAccounts.size();
     StringBuilder builder = new StringBuilder();
@@ -12,7 +12,7 @@ public class BankAccountJsonSerialization {
       builder.append("[");
       for (int i = 0; i < size; i++) {
         builder.append("{ \"accountNumber\": \"" + bankAccounts.get(i) +
-                       "\" }");
+            "\" }");
         if (i != size - 1) {
           builder.append(",");
         }
