@@ -2,6 +2,7 @@ import di.Container;
 import accounts.BankAccount;
 import accounts.services.IBankAccountService;
 import people.AccountOwner;
+import people.AccountOwnerFactory;
 import transfers.TransferService;
 
 public class Main {
@@ -10,8 +11,9 @@ public class Main {
 
     IBankAccountService accountService = container.getBankAccountService();
     TransferService transferService = container.getTransferService();
+    AccountOwnerFactory accountOwnerFactory = container.getAccountOwnerFactory();
 
-    AccountOwner owner1 = new AccountOwner("Janos", "Kredenc");
+    AccountOwner owner1 = accountOwnerFactory.createAccountOwner("Jánoš", "Kredenc");
     AccountOwner owner2 = new AccountOwner("Bela", "Kovacs");
 
     BankAccount businessAccount = accountService.createBusinessAccount(owner1, 0.05);

@@ -3,6 +3,7 @@ package di;
 import accounts.*;
 import accounts.services.*;
 import notifiers.*;
+import people.AccountOwnerFactory;
 import transfers.*;
 
 public class Container {
@@ -15,6 +16,8 @@ public class Container {
 
     private final IBankAccountService bankAccountService = new BankAccountService(bankAccountFactory);
     private final TransferService transferService = new TransferService(transactionFactory);
+
+    private final AccountOwnerFactory accountOwnerFactory = new AccountOwnerFactory();
 
     // Gettery
     public Notifier getNotifier() {
@@ -35,5 +38,9 @@ public class Container {
 
     public TransferLoggerService getTransferLoggerService() {
         return transferLogger;
+    }
+
+    public AccountOwnerFactory getAccountOwnerFactory() {
+        return accountOwnerFactory;
     }
 }
