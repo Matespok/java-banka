@@ -6,6 +6,10 @@ public class TransferService {
 
   TransactionFactory factory;
 
+  public TransferService(TransactionFactory factory) {
+    this.factory = factory;
+  }
+
   public void transferMoney(double amount, BankAccount from, BankAccount to) {
     if (amount <= 0) {
       System.out.println("Positive amount only");
@@ -21,4 +25,5 @@ public class TransferService {
       System.out.println("Transfer failed: " + e.getMessage());
     }
   }
+
 }
