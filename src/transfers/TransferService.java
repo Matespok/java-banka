@@ -17,9 +17,10 @@ public class TransferService {
     }
     try {
       from.substract(amount);
-      to.add(amount);
+      double convertedAmount = from.getCurrency().convertTo(amount, to.getCurrency());
+      to.add(convertedAmount);
       factory.createTransaction(from, to, amount);
-      System.out.println("Transfer successful!");
+      System.out.println("Transfer successful! (" + amount + " " + from.getCurrency() + " -> " + convertedAmount + " " + to.getCurrency() + ")");
 
     } catch (ArithmeticException e) {
       System.out.println("Transfer failed: " + e.getMessage());

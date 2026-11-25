@@ -1,5 +1,6 @@
 package accounts;
 
+import currency.Currency;
 import people.*;
 
 public class StudentAccount extends BankAccount {
@@ -18,6 +19,12 @@ public class StudentAccount extends BankAccount {
     public StudentAccount(AccountOwner owner, String uuid, String accountNumber,
                           String school) {
         super(owner, accountNumber, uuid);
+        this.school = school;
+    }
+
+    public StudentAccount(AccountOwner owner, String uuid, String accountNumber,
+                          String school, Currency currency) {
+        super(owner, accountNumber, uuid, currency);
         this.school = school;
     }
 

@@ -1,5 +1,6 @@
 package accounts;
 
+import currency.Currency;
 import people.*;
 
 public class CurrentAccount extends BankAccount {
@@ -20,6 +21,12 @@ public class CurrentAccount extends BankAccount {
   public CurrentAccount(String uuid, String accountNumber, AccountOwner owner,
                         double overdraftLimit) {
     super(owner, accountNumber, uuid);
+    this.overdraftLimit = overdraftLimit;
+  }
+
+  public CurrentAccount(String uuid, String accountNumber, AccountOwner owner,
+                        double overdraftLimit, Currency currency) {
+    super(owner, accountNumber, uuid, currency);
     this.overdraftLimit = overdraftLimit;
   }
 

@@ -1,5 +1,6 @@
 package accounts;
 
+import currency.Currency;
 import people.*;
 
 public class BusinessAccount extends BankAccount {
@@ -19,6 +20,12 @@ public class BusinessAccount extends BankAccount {
   public BusinessAccount(AccountOwner owner, double withdrawFee, String uuid,
                          String accountNumber) {
     super(owner, accountNumber, uuid);
+    this.withdrawFee = withdrawFee;
+  }
+
+  public BusinessAccount(AccountOwner owner, double withdrawFee, String uuid,
+                         String accountNumber, Currency currency) {
+    super(owner, accountNumber, uuid, currency);
     this.withdrawFee = withdrawFee;
   }
 

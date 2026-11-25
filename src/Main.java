@@ -24,7 +24,15 @@ public class Main {
 
     transferService.transferMoney(500, businessAccount, studentAccount);
 
-    System.out.println("Zůstatek business: " + businessAccount.getBalance());
-    System.out.println("Zůstatek student: " + studentAccount.getBalance());
+    printBalance("Zůstatek business", businessAccount);
+    printBalance("Zůstatek student", studentAccount);
+  }
+
+  private static void printBalance(String label, BankAccount account) {
+    currency.Currency curr = account.getCurrency();
+    currency.Currency other = (curr == currency.Currency.EUR) ? currency.Currency.CZK : currency.Currency.EUR;
+    double converted = curr.convertTo(account.getBalance(), other);
+    System.out.printf("%s: %.2f %s (%s) | Přepočet: %.2f %s (%s)%n",
+        label, account.getBalance(), curr.getSymbol(), curr, converted, other.getSymbol(), other);
   }
 }

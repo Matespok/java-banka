@@ -1,5 +1,6 @@
 package accounts;
 
+import currency.Currency;
 import people.*;
 
 public class SavingsAccount extends BankAccount {
@@ -19,6 +20,12 @@ public class SavingsAccount extends BankAccount {
   public SavingsAccount(AccountOwner owner, double interest, String uuid,
                         String accountNumber) {
     super(owner, accountNumber, uuid);
+    this.interest = CountInterest(interest);
+  }
+
+  public SavingsAccount(AccountOwner owner, double interest, String uuid,
+                        String accountNumber, Currency currency) {
+    super(owner, accountNumber, uuid, currency);
     this.interest = CountInterest(interest);
   }
 
