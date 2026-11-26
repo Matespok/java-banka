@@ -13,8 +13,8 @@ public class Main {
     TransferService transferService = container.getTransferService();
     AccountOwnerFactory accountOwnerFactory = container.getAccountOwnerFactory();
 
-    AccountOwner owner1 = accountOwnerFactory.createAccountOwner("Jánoš", "Kredenc");
-    AccountOwner owner2 = new AccountOwner("Bela", "Kovacs");
+    AccountOwner owner2 = new AccountOwner("Bela", "Kovacs"); // Before :D
+    AccountOwner owner1 = accountOwnerFactory.createAccountOwner("Jánoš", "Kredenc"); // After
 
     BankAccount businessAccount = accountService.createBusinessAccount(owner1, 0.05);
     BankAccount studentAccount = accountService.createStudentAccount(owner2, "BME");
