@@ -2,6 +2,7 @@ package di;
 
 import accounts.*;
 import accounts.services.*;
+import currency.CurrencyService;
 import notifiers.*;
 import people.AccountOwnerFactory;
 import transfers.*;
@@ -14,8 +15,10 @@ public class Container {
             (ConsoleNotifier) notifier);
     private final TransactionFactory transactionFactory = new TransactionFactory();
 
+    private final CurrencyService currencyService = new CurrencyService();
+
     private final IBankAccountService bankAccountService = new BankAccountService(bankAccountFactory);
-    private final TransferService transferService = new TransferService(transactionFactory);
+    private final TransferService transferService = new TransferService(transactionFactory, currencyService);
 
     private final AccountOwnerFactory accountOwnerFactory = new AccountOwnerFactory();
 
@@ -42,5 +45,9 @@ public class Container {
 
     public AccountOwnerFactory getAccountOwnerFactory() {
         return accountOwnerFactory;
+    }
+
+    public CurrencyService getCurrencyService() {
+        return currencyService;
     }
 }

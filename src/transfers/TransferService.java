@@ -1,13 +1,16 @@
 package transfers;
 
 import accounts.BankAccount;
+import currency.CurrencyService;
 
 public class TransferService {
 
   TransactionFactory factory;
+  CurrencyService currencyService;
 
-  public TransferService(TransactionFactory factory) {
+  public TransferService(TransactionFactory factory, CurrencyService currencyService) {
     this.factory = factory;
+    this.currencyService = currencyService;
   }
 
   public void transferMoney(double amount, BankAccount from, BankAccount to) {
@@ -17,7 +20,7 @@ public class TransferService {
     }
     try {
       from.substract(amount);
-      double convertedAmount = from.getCurrency().convertTo(amount, to.getCurrency());
+      double convertedAmount = currencyService.convert(amount, from.getCurrency(), to.getCurrency());
       to.add(convertedAmount);
       factory.createTransaction(from, to, amount);
       System.out.println("Transfer successful! (" + amount + " " + from.getCurrency() + " -> " + convertedAmount + " " + to.getCurrency() + ")");

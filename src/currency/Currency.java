@@ -21,11 +21,4 @@ public enum Currency {
     return rateToCzk;
   }
 
-  public double convertTo(double amount, Currency targetCurrency) {
-    if (this == targetCurrency) {
-      return amount;
-    }
-    double inCzk = amount * this.rateToCzk;
-    return inCzk / targetCurrency.rateToCzk;
-  }
 }
